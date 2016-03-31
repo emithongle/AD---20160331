@@ -79,7 +79,8 @@ preprocessing_func = 'preprocessing'
 # Preprocessing
 bpreprocessing = True
 preprocessing_name = {'convert unicode to ascii': True, 'convert to lower': True,
-                      'remove break line': False, 'remove space by space': True}
+                      'remove break line': False, 'remove multiple spaces': True,
+                      'trim "space" and ","': True}
 
 # Features
 feature_list = [

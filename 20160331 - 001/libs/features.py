@@ -8,6 +8,7 @@ import numpy as np
 from config import *
 from libs import store
 import string
+import re
 
 def extractFeature(tupledata):
     names, addresses, phones = tupledata
@@ -301,18 +302,10 @@ def preprocess(text):
     if (preprocessing_name['convert to lower']):
         text = text.lower()
 
-    if (preprocessing_name['remove space by space']):
-        while (text != text.replace('  ', ' ')):
-            text = text.replace('  ', ' ')
+    if (preprocessing_name['remove multiple spaces']):
+        text = re.sub(' +', ' ', text)
 
-    # if (preprocessing_name['punctuation_begin']):
-    #     while (len(text) > 0 and text[0] in rm_preprocessed_punctuation):
-    #         text = text[1:]
-    #
-    # if (preprocessing_name['punctuation_end']):
-    #     while (len(text) > 0 and text[-1] in rm_preprocessed_punctuation):
-    #         text = text[:-1]
-
-    text = text.strip(rm_preprocessed_punctuation)
+    if (preprocessing_name['trim "space" and ","']):
+        text = text.strip(rm_preprocessed_punctuation)
 
     return text
