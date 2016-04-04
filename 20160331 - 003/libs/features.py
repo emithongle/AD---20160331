@@ -135,38 +135,38 @@ def findMaxStringP(text, type, skip=0, skip_chars=''):
             None
         i += 1
     if nskip > skip:
-        return text[:i-1]
+        return text[:i-1].strip()
     elif (i == len(text)):
-        return text
+        return text.strip()
 
-    return text[:i]
+    return text[:i].strip()
 
 def findMaxString(text, skip=0, skip_chars=''):
     tc, td = '', ''
-    c = 0
+    # c = 0
     try:
         for i in range(len(text)):
             if text[i] in string.digits:
                 t = findMaxStringP(text[i:], 'digit', skip, skip_chars)
-                if (c > 0):
-                    t = text[i-c:i] + t
-                    c = 0
+                # if (c > 0):
+                #     t = text[i-c:i] + t
+                #     c = 0
                 if (len(td) < len(t)):
                     td = t
 
             elif text[i] in string.ascii_letters:
                 t = findMaxStringP(text[i:], 'ascii', skip, skip_chars)
-                if (c > 0):
-                    t = text[i-c:i] + t
-                    c = 0
+                # if (c > 0):
+                #     t = text[i-c:i] + t
+                #     c = 0
                 if (len(tc) < len(t)):
                     tc = t
 
-            elif (text[i] in skip_punctuation): # text[i] in string.punctuation and
-                # t = findMaxStringP(text[i:], 'punctuation', skip, split_chars)
-                c += 1
-            else:
-                c = 0
+            # elif (text[i] in skip_punctuation): # text[i] in string.punctuation and
+            #     # t = findMaxStringP(text[i:], 'punctuation', skip, split_chars)
+            #     c += 1
+            # else:
+            #     c = 0
 
     except ValueError:
         None
@@ -185,13 +185,13 @@ def getFeatureNames(fl=feature_list):
 def feature(text, fl=feature_list):
     textLen = text.__len__()
 
-    preprocessText = preprocess4GetTerm(text)
-    preprocessedTermList = preprocessText.split()
+    # preprocessText = preprocess4GetTerm(text)
+    # preprocessedTermList = preprocessText.split()
     # preprocessedTermListLen = len(preprocessedTermList)
 
-    nameTerms = removeDuplicate([term for term in nameTermSet if ((' ' + preprocessText + ' ').find(' ' + term + ' ')>= 0)])
-    addressTerms = removeDuplicate([term for term in addressTermSet if ((' ' + preprocessText + ' ').find(' ' + term + ' ')>= 0)])
-    phoneTerms = removeDuplicate([term for term in phoneTermSet if ((' ' + preprocessText + ' ').find(' ' + term + ' ')>= 0)])
+    nameTerms = removeDuplicate([term for term in nameTermSet if (text.find(term)>= 0)])
+    addressTerms = removeDuplicate([term for term in addressTermSet if (text.find(term)>= 0)])
+    phoneTerms = removeDuplicate([term for term in phoneTermSet if (text.find(term)>= 0)])
 
     nascii = sum([1 for c in text if (c in string.ascii_letters)])
     ndigit = sum([1 for c in text if (c in string.digits)])

@@ -36,72 +36,19 @@
             },
             "target": "Classify Name/Address/Phone"
         },
-        "name": "20160401_013003",
+        "name": "20160401_012448",
         "preprocessing": {
             "flag": true,
             "type": [
+                "remove multiple spaces",
                 "trim \"space\" and \",\"",
-                "convert unicode to ascii",
                 "convert to lower",
                 "remove break line",
-                "remove multiple spaces"
+                "convert unicode to ascii"
             ]
         },
         "results": {
-            "test-accuracy": 0.958,
-            "validate-accuracy": 0
-        }
-    },
-    {
-        "database": {
-            "address": "address.txt",
-            "folder": "1. Data",
-            "name": "name.txt",
-            "phone": "phone.txt"
-        },
-        "dictionary": {
-            "file": [
-                "dictionary"
-            ],
-            "folder": "0. Data-source"
-        },
-        "features": [
-            "#ascii/(#ascii+#digit+#punctuation)",
-            "%kwPhone",
-            "#max_digit_skip_0_1"
-        ],
-        "model": {
-            "class": "Neuron Network",
-            "config": {
-                "layers": [
-                    [
-                        100,
-                        "Sigmoid"
-                    ],
-                    [
-                        3,
-                        "Softmax"
-                    ]
-                ],
-                "learning_rate": 0.01,
-                "learning_rule": "adagrad",
-                "n_iter": 100
-            },
-            "target": "Classify Name/Address/Phone"
-        },
-        "name": "20160401_013140",
-        "preprocessing": {
-            "flag": true,
-            "type": [
-                "trim \"space\" and \",\"",
-                "convert unicode to ascii",
-                "convert to lower",
-                "remove break line",
-                "remove multiple spaces"
-            ]
-        },
-        "results": {
-            "test-accuracy": 0.956,
+            "test-accuracy": 0.9653333333333334,
             "validate-accuracy": 0
         }
     }
