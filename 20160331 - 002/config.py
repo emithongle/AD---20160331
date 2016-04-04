@@ -120,7 +120,7 @@ model_config = {
     'layers': [(100, 'Sigmoid'), (3, 'Softmax')],
     'learning_rate': 0.01,
     'learning_rule': 'adagrad',
-    'n_iter': 100
+    'n_iter': 300
 }
 model_config_file = 'model_config'
 

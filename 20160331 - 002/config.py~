@@ -97,7 +97,7 @@ feature_list = [
 
     ('%kwName', False),
     ('%kwAddress', False),
-    ('%kwPhone', True),
+    ('%kwPhone', False),
 
     ('%max_digit_skip_0', False),
     ('#max_digit_skip_0', False),
@@ -107,9 +107,9 @@ feature_list = [
     ('first_character_ascii', False),
     ('first_character_digit', False),
 
-    ('#(', False),
-    ('#+', False),
-    ('#/', False)
+    ('#(', True),
+    ('#+', True),
+    ('#/', True)
 ]
 
 # Model

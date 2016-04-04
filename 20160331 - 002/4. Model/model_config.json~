@@ -36,19 +36,19 @@
             },
             "target": "Classify Name/Address/Phone"
         },
-        "name": "20160401_012103",
+        "name": "20160401_012448",
         "preprocessing": {
             "flag": true,
             "type": [
-                "remove break line",
-                "convert to lower",
-                "convert unicode to ascii",
                 "remove multiple spaces",
-                "trim \"space\" and \",\""
+                "trim \"space\" and \",\"",
+                "convert to lower",
+                "remove break line",
+                "convert unicode to ascii"
             ]
         },
         "results": {
-            "test-accuracy": 0.9553333333333334,
+            "test-accuracy": 0.9653333333333334,
             "validate-accuracy": 0
         }
     }
